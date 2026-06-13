@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phani Sai Teja Jampani — Product Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary:      #1a56db;
+      --primary-dark: #1e40af;
+      --primary-light:#eff6ff;
+      --accent:       #f97316;
+      --accent-light: #fff7ed;
+      --dark:         #0f172a;
+      --dark-2:       #1e293b;
+      --gray-1:       #f8fafc;
+      --gray-2:       #f1f5f9;
+      --gray-3:       #e2e8f0;
+      --gray-4:       #94a3b8;
+      --gray-5:       #64748b;
+      --text:         #0f172a;
+      --text-light:   #475569;
+
+      /* category palette */
+      --c-prd:        #1a56db; --c-prd-bg:      #eff6ff;
+      --c-growth:     #059669; --c-growth-bg:   #ecfdf5;
+      --c-ux:         #7c3aed; --c-ux-bg:       #f5f3ff;
+      --c-research:   #d97706; --c-research-bg: #fffbeb;
+      --c-strategy:   #dc2626; --c-strategy-bg: #fef2f2;
+      --c-case:       #0891b2; --c-case-bg:     #ecfeff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #fff;
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-3);
+      height: 62px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+      transition: box-shadow 0.2s;
+    }
+    nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 1rem;
+      color: var(--dark); text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; font-size: 0.85rem; font-weight: 500;
+      color: var(--gray-5); transition: color 0.15s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(140deg, #0b1628 0%, #0f2a50 55%, #0b1628 100%);
+      display: flex; align-items: center;
+      padding: 7rem clamp(1.25rem, 5vw, 3rem) 8.5rem;
+      position: relative; overflow: hidden;
+    }
+
+    .hero-glow-1 {
+      position: absolute; width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(26,86,219,.14) 0%, transparent 65%);
+      top: -160px; right: -120px; pointer-events: none;
+    }
+    .hero-glow-2 {
+      position: absolute; width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(249,115,22,.09) 0%, transparent 65%);
+      bottom: -80px; left: -80px; pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1080px; margin: 0 auto;
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(249,115,22,.13);
+      border: 1px solid rgba(249,115,22,.28);
+      color: #fb923c;
+      padding: 0.35rem 1rem; border-radius: 100px;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 800; line-height: 1.08;
+      color: #fff; letter-spacing: -0.03em;
+      margin-bottom: 1.1rem;
+    }
+    .hero h1 .accent { color: #60a5fa; }
+
+    .hero-tagline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      font-weight: 600; color: #e2e8f0;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .hero-tagline .hl { color: #60a5fa; }
+
+    .hero-sub {
+      font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+      color: #94a3b8; max-width: 580px;
+      line-height: 1.75; margin-bottom: 2.25rem;
+    }
+
+    .hero-stats {
+      display: flex; gap: 2.5rem; flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.25rem;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .stat-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem; font-weight: 800; color: #fff;
+      line-height: 1;
+    }
+    .stat-lbl {
+      font-size: 0.7rem; font-weight: 600;
+      color: #475569; text-transform: uppercase;
+      letter-spacing: 0.07em; margin-top: 0.3rem;
+    }
+
+    .hero-actions { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.7rem 1.6rem; border-radius: 8px;
+      font-size: 0.875rem; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+    }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(26,86,219,.35); }
+    .btn-ghost {
+      background: transparent; color: #e2e8f0;
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.35); }
+
+    /* hero side card */
+    .hero-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 16px; padding: 1.75rem;
+      min-width: 240px;
+    }
+    .hero-card-title {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #475569; margin-bottom: 1.1rem;
+    }
+    .hero-card-item {
+      display: flex; align-items: center; gap: 0.65rem;
+      margin-bottom: 0.9rem;
+    }
+    .hero-card-item:last-child { margin-bottom: 0; }
+    .hero-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #22d3ee; flex-shrink: 0;
+    }
+    .hero-card-item span {
+      font-size: 0.8rem; color: #94a3b8; font-weight: 400;
+    }
+    .hero-card-item strong { color: #e2e8f0; font-weight: 600; }
+
+    /* ─── SHARED SECTION STYLES ──────────────────────────── */
+    section { padding: clamp(4.5rem, 8vw, 8rem) clamp(1.25rem, 4vw, 3rem); }
+    .container { max-width: 1080px; margin: 0 auto; }
+
+    .sec-label {
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--primary); margin-bottom: 1.25rem;
+    }
+    .sec-label::before {
+      content: ''; display: inline-block;
+      width: 2.5rem; height: 2px;
+      background: currentColor; border-radius: 2px; flex-shrink: 0;
+    }
+    .sec-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 800; color: var(--dark);
+      letter-spacing: -0.03em; line-height: 1.1;
+      margin-bottom: 1.1rem;
+    }
+    .sec-desc {
+      color: var(--text-light); font-size: clamp(1rem, 1.4vw, 1.1rem);
+      max-width: 620px; line-height: 1.8;
+      margin-bottom: 3.5rem;
+    }
+
+    /* ─── ABOUT ──────────────────────────────────────────── */
+    .about-bg { background: var(--gray-1); }
+
+    .about-narrative {
+      max-width: 700px; margin-bottom: 3.5rem;
+    }
+    .about-narrative p {
+      color: var(--text-light); line-height: 1.9;
+      margin-bottom: 1.4rem; font-size: clamp(1rem, 1.3vw, 1.08rem);
+    }
+    .about-narrative p:last-child { margin-bottom: 0; }
+    .about-narrative p strong { color: var(--dark); font-weight: 600; }
+    .about-narrative p em { color: var(--primary); font-style: normal; font-weight: 500; }
+
+    .about-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+    .about-card {
+      background: #fff; border: 1px solid var(--gray-3); border-radius: 12px;
+      padding: 1.25rem 1.4rem; display: flex; align-items: flex-start; gap: 0.9rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .about-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.07); transform: translateY(-2px); }
+    .about-card-icon { font-size: 1.35rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .about-card h4 { font-size: 0.84rem; font-weight: 600; color: var(--dark); margin-bottom: 0.25rem; }
+    .about-card p { font-size: 0.76rem; color: var(--gray-5); line-height: 1.6; }
+
+    /* ─── SKILLS ─────────────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 1.25rem;
+    }
+    .skill-box {
+      background: #fff; border: 1px solid var(--gray-3);
+      border-radius: 12px; padding: 1.5rem;
+      border-top: 3px solid var(--primary);
+    }
+    .skill-box-title {
+      font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.07em; color: var(--dark); margin-bottom: 1rem;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .tag {
+      background: #fff; border: 1px solid var(--gray-3);
+      color: var(--text-light); padding: 0.25rem 0.65rem;
+      border-radius: 100px; font-size: 0.73rem; font-weight: 500;
+    }
+
+    /* ─── PROJECTS ───────────────────────────────────────── */
+    .projects-bg { background: var(--gray-1); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 1.35rem;
+    }
+
+    .pcard {
+      background: #fff; border: 1px solid var(--gray-3); border-radius: 16px;
+      padding: 1.75rem; display: flex; flex-direction: column;
+      transition: transform 0.22s, box-shadow 0.22s;
+      position: relative; overflow: hidden;
+    }
+    .pcard:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.1);
+    }
+    .pcard-ghost-num {
+      position: absolute; bottom: -1.5rem; right: -0.75rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 9rem; font-weight: 800;
+      color: rgba(0,0,0,0.04); line-height: 1;
+      letter-spacing: -0.05em; pointer-events: none; user-select: none;
+    }
+
+    .pcard-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 1.1rem;
+    }
+    .pcard-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem; font-weight: 700; color: var(--gray-4);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      line-height: 1; padding-top: 0.1rem;
+    }
+
+    .badge {
+      display: inline-block; font-size: 0.66rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      padding: 0.28rem 0.7rem; border-radius: 100px;
+    }
+    .b-prd      { background: var(--c-prd-bg);      color: var(--c-prd); }
+    .b-growth   { background: var(--c-growth-bg);   color: var(--c-growth); }
+    .b-ux       { background: var(--c-ux-bg);       color: var(--c-ux); }
+    .b-research { background: var(--c-research-bg); color: var(--c-research); }
+    .b-strategy { background: var(--c-strategy-bg); color: var(--c-strategy); }
+    .b-case     { background: var(--c-case-bg);     color: var(--c-case); }
+
+    .pcard-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--dark); line-height: 1.25; margin-bottom: 0.25rem;
+    }
+    .pcard-sub {
+      font-size: 0.78rem; color: var(--gray-5); font-weight: 500;
+      margin-bottom: 0.85rem;
+    }
+    .pcard-desc {
+      font-size: 0.85rem; color: var(--text-light);
+      line-height: 1.7; margin-bottom: 1.1rem; flex-grow: 1;
+    }
+
+    .pcard-metrics {
+      background: var(--gray-1); border-radius: 8px;
+      padding: 0.9rem 1rem; margin-bottom: 1.1rem;
+      display: flex; flex-direction: column; gap: 0.38rem;
+    }
+    .metric {
+      display: flex; align-items: flex-start; gap: 0.5rem;
+      font-size: 0.78rem;
+    }
+    .metric::before {
+      content: '↑'; color: var(--primary);
+      font-size: 0.7rem; flex-shrink: 0; margin-top: 1px;
+    }
+    .metric span { color: var(--text-light); line-height: 1.4; }
+
+    .pcard-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .ptag {
+      background: var(--gray-2); color: var(--gray-5);
+      padding: 0.18rem 0.55rem; border-radius: 4px;
+      font-size: 0.68rem; font-weight: 500;
+    }
+
+    /* ─── EXPERIENCE ─────────────────────────────────────── */
+    .exp-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    }
+    .exp-col-label {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--gray-5); margin-bottom: 1.5rem;
+    }
+
+    .timeline { position: relative; padding-left: 1.75rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 8px; bottom: 0;
+      width: 2px; background: var(--gray-3);
+    }
+    .tl-item { position: relative; margin-bottom: 2.25rem; }
+    .tl-item::before {
+      content: ''; position: absolute;
+      left: calc(-1.75rem - 5px); top: 8px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--primary);
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+    .tl-date {
+      font-size: 0.72rem; font-weight: 600; color: var(--gray-5);
+      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.2rem;
+    }
+    .tl-role {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem; font-weight: 600; color: var(--dark); margin-bottom: 0.1rem;
+    }
+    .tl-company { font-size: 0.825rem; color: var(--primary); font-weight: 600; margin-bottom: 0.65rem; }
+    .tl-points { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+    .tl-points li {
+      font-size: 0.82rem; color: var(--text-light);
+      padding-left: 1rem; position: relative; line-height: 1.6;
+    }
+    .tl-points li::before {
+      content: '→'; position: absolute; left: 0;
+      color: var(--primary); font-size: 0.72rem; top: 2px;
+    }
+
+    /* certs */
+    .cert-stack { display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem; }
+    .cert-card {
+      background: var(--gray-1); border: 1px solid var(--gray-3);
+      border-radius: 10px; padding: 1rem 1.25rem;
+      display: flex; align-items: flex-start; gap: 0.85rem;
+    }
+    .cert-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .cert-card h4 { font-size: 0.84rem; font-weight: 600; color: var(--dark); margin-bottom: 0.15rem; }
+    .cert-card p { font-size: 0.76rem; color: var(--gray-5); line-height: 1.5; }
+
+    /* other-projects */
+    .other-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+    .other-card {
+      background: #fff; border: 1px solid var(--gray-3); border-radius: 10px; padding: 1.1rem;
+    }
+    .other-badge {
+      font-size: 0.66rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; color: var(--accent); margin-bottom: 0.4rem;
+    }
+    .other-card h4 { font-size: 0.84rem; font-weight: 600; color: var(--dark); margin-bottom: 0.3rem; line-height: 1.3; }
+    .other-card p { font-size: 0.76rem; color: var(--text-light); line-height: 1.55; }
+
+    /* ─── CONTACT ────────────────────────────────────────── */
+    .contact-sec { background: var(--dark); }
+    .contact-sec .sec-label { color: #60a5fa; }
+    .contact-sec .sec-label::before { background: #60a5fa; }
+    .contact-sec .sec-title { color: #fff; }
+
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+
+    .contact-intro {
+      color: #94a3b8; font-size: 0.95rem; line-height: 1.8; margin-bottom: 2rem;
+    }
+    .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
+    .clink {
+      display: flex; align-items: center; gap: 0.75rem;
+      color: #94a3b8; text-decoration: none; font-size: 0.875rem;
+      transition: color 0.15s;
+    }
+    .clink:hover { color: #60a5fa; }
+    .clink-icon {
+      width: 38px; height: 38px; border-radius: 8px;
+      background: rgba(255,255,255,.05); display: flex;
+      align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;
+    }
+
+    .contact-box {
+      background: rgba(26,86,219,.08);
+      border: 1px solid rgba(26,86,219,.25); border-radius: 14px;
+      padding: 2rem;
+    }
+    .contact-box h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;
+    }
+    .contact-box p { color: #94a3b8; font-size: 0.85rem; line-height: 1.75; margin-bottom: 1.5rem; }
+
+    .skills-pill-row {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;
+    }
+    .skills-pill {
+      background: rgba(96,165,250,.1); border: 1px solid rgba(96,165,250,.2);
+      color: #93c5fd; padding: 0.25rem 0.7rem; border-radius: 100px;
+      font-size: 0.73rem; font-weight: 500;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,.05);
+      padding: 1.5rem clamp(1.25rem, 4vw, 3rem);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 0.5rem;
+    }
+    footer p { color: #334155; font-size: 0.78rem; }
+    footer a { color: #475569; font-size: 0.78rem; text-decoration: none; transition: color 0.15s; }
+    footer a:hover { color: #60a5fa; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-inner      { grid-template-columns: 1fr; }
+        .pm-brief        { display: none; }
+      .exp-grid        { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contact-grid    { grid-template-columns: 1fr; gap: 2rem; }
+      .other-grid      { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links       { display: none; }
+      .projects-grid   { grid-template-columns: 1fr; }
+      .skills-grid     { grid-template-columns: 1fr 1fr; }
+      .hero-stats      { gap: 1.5rem; }
+    }
+    @media (max-width: 420px) {
+      .skills-grid     { grid-template-columns: 1fr; }
+    }
+
+    /* ─── CUSTOM CURSOR ──────────────────────────────────── */
+    body { cursor: none; }
+    .cursor, .cursor-ring {
+      position: fixed; top: 0; left: 0; border-radius: 50%;
+      pointer-events: none; transform: translate(-50%,-50%);
+    }
+    .cursor {
+      width: 10px; height: 10px; background: #fff;
+      mix-blend-mode: difference; z-index: 10001;
+      transition: width .18s ease, height .18s ease;
+    }
+    .cursor.c-hover { width: 22px; height: 22px; }
+    .cursor-ring {
+      width: 40px; height: 40px; z-index: 10000;
+      border: 1.5px solid rgba(26,86,219,.4);
+      transition: width .2s ease, height .2s ease, border-color .2s;
+    }
+    .cursor-ring.c-hover { width: 60px; height: 60px; border-color: rgba(249,115,22,.35); }
+    @media (hover: none), (pointer: coarse) {
+      body { cursor: auto; }
+      .cursor, .cursor-ring { display: none; }
+    }
+
+    /* ─── PROGRESS BAR ───────────────────────────────────── */
+    .read-bar {
+      position: fixed; top: 62px; left: 0; height: 2px; width: 0%;
+      background: linear-gradient(90deg, var(--primary), #60a5fa, #a78bfa);
+      z-index: 199; transition: width .06s linear;
+      box-shadow: 0 0 8px rgba(96,165,250,.5);
+    }
+
+    /* ─── SCROLL REVEAL ──────────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .72s cubic-bezier(.22,1,.36,1),
+                  transform .72s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ─── HERO LOAD ANIMATION ────────────────────────────── */
+    .hero-inner > div:first-child > * {
+      animation: hero-in .85s cubic-bezier(.22,1,.36,1) both;
+    }
+    .hero-inner > div:first-child > *:nth-child(1) { animation-delay: .05s; }
+    .hero-inner > div:first-child > *:nth-child(2) { animation-delay: .14s; }
+    .hero-inner > div:first-child > *:nth-child(3) { animation-delay: .22s; }
+    .hero-inner > div:first-child > *:nth-child(4) { animation-delay: .30s; }
+    .hero-inner > div:first-child > *:nth-child(5) { animation-delay: .38s; }
+    .hero-inner > div:first-child > *:nth-child(6) { animation-delay: .46s; }
+    .hero-card { animation: hero-card-in .9s cubic-bezier(.22,1,.36,1) .28s both; }
+    @keyframes hero-in {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes hero-card-in {
+      from { opacity: 0; transform: translateX(30px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* ─── ANIMATED GRADIENT HERO NAME ───────────────────── */
+    .hero h1 .accent {
+      background: linear-gradient(120deg, #60a5fa 0%, #a78bfa 45%, #60a5fa 100%);
+      background-size: 200%;
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+      animation: grad 6s ease infinite;
+    }
+    @keyframes grad {
+      0%, 100% { background-position: 0%; }
+      50%       { background-position: 100%; }
+    }
+
+    /* ─── HERO GRAIN TEXTURE ─────────────────────────────── */
+    .hero-grain {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      opacity: .045;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ─── PCARD CATEGORY BORDER ──────────────────────────── */
+    .pcard[data-ptype="prd"]      { border-left: 3px solid var(--c-prd); }
+    .pcard[data-ptype="strategy"] { border-left: 3px solid var(--c-strategy); }
+    .pcard[data-ptype="growth"]   { border-left: 3px solid var(--c-growth); }
+    .pcard[data-ptype="case"]     { border-left: 3px solid var(--c-case); }
+    .pcard[data-ptype="research"] { border-left: 3px solid var(--c-research); }
+    .pcard[data-ptype="ux"]       { border-left: 3px solid var(--c-ux); }
+
+    /* ─── TYPEWRITER STRIP ───────────────────────────────── */
+    .tw-strip {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      display: flex; align-items: center; gap: 1.25rem;
+      padding: 0.9rem clamp(1.25rem, 5vw, 3rem);
+      border-top: 1px solid rgba(255,255,255,.07);
+      background: rgba(0,0,0,.2);
+    }
+    .tw-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.13em;
+      text-transform: uppercase; color: var(--primary);
+      padding: 0.22rem 0.6rem; border: 1px solid rgba(26,86,219,.35);
+      border-radius: 4px; flex-shrink: 0;
+    }
+    .tw-text-wrap {
+      flex: 1; font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.73rem; font-weight: 600; color: #64748b;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      white-space: nowrap; overflow: hidden;
+    }
+    .tw-cursor {
+      display: inline-block; width: 2px; height: 0.82em;
+      background: var(--primary); margin-left: 2px;
+      vertical-align: -1px;
+      animation: tw-blink .85s step-end infinite;
+    }
+    @keyframes tw-blink { 50% { opacity: 0; } }
+    .tw-dots { display: flex; gap: 5px; flex-shrink: 0; }
+    .tw-dot {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: rgba(255,255,255,.1); transition: background .3s, transform .3s;
+    }
+    .tw-dot.on { background: var(--primary); transform: scale(1.4); }
+    .tw-counter {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.6rem; font-weight: 700; color: #1e293b;
+      letter-spacing: 0.06em; flex-shrink: 0;
+    }
+
+    /* ─── LOGO MARK ──────────────────────────────────────── */
+    .logo-mark {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0;
+      background: linear-gradient(135deg, #1a56db 0%, #7c3aed 100%);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.63rem; font-weight: 800; color: #fff; letter-spacing: 0;
+      box-shadow: 0 2px 8px rgba(26,86,219,.3);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+
+    /* ─── NAV OPEN-TO-PM STATUS ──────────────────────────── */
+    .nav-open {
+      display: none; align-items: center; gap: 0.45rem;
+      font-size: 0.72rem; font-weight: 600; color: #059669;
+      background: rgba(5,150,105,.08); border: 1px solid rgba(5,150,105,.22);
+      padding: 0.28rem 0.8rem; border-radius: 100px;
+      text-decoration: none; transition: all .2s; white-space: nowrap;
+    }
+    .nav-open:hover { background: rgba(5,150,105,.14); border-color: rgba(5,150,105,.4); }
+    .nav-open-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #10b981; flex-shrink: 0;
+      animation: pulse-green 2s ease-out infinite;
+    }
+    @keyframes pulse-green {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(16,185,129,.45); }
+      70%       { box-shadow: 0 0 0 7px rgba(16,185,129,0); }
+    }
+    @media (min-width: 700px) { .nav-open { display: flex; } }
+
+    /* ─── HERO CANVAS BACKGROUND ─────────────────────────── */
+    #heroCanvas {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ─── HERO JOURNEY ARC ───────────────────────────────── */
+    .hero-journey {
+      display: flex; align-items: center; gap: 0;
+      margin-bottom: 1.5rem;
+    }
+    .hj-node { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+    .hj-dot {
+      width: 9px; height: 9px; border-radius: 50%; border: 2px solid;
+    }
+    .hj-dot-from { border-color: #64748b; background: rgba(100,116,139,.25); }
+    .hj-dot-to   { border-color: #60a5fa; background: rgba(96,165,250,.25); }
+    .hj-lbl {
+      font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.09em; white-space: nowrap;
+    }
+    .hj-lbl-from { color: #64748b; }
+    .hj-lbl-to   { color: #60a5fa; }
+    .hj-line {
+      flex: 1; height: 2px; margin: 0 0.75rem 1.2rem;
+      background: rgba(100,116,139,.2); position: relative; overflow: hidden;
+    }
+    .hj-fill {
+      position: absolute; left: 0; top: 0; height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #a78bfa);
+      animation: hj-grow 1.8s cubic-bezier(.22,1,.36,1) .6s both;
+    }
+    @keyframes hj-grow { from { width: 0%; } to { width: 100%; } }
+    .hj-arrow {
+      position: absolute; right: -1px; top: 50%; transform: translateY(-50%);
+      width: 0; height: 0;
+      border-top: 4px solid transparent; border-bottom: 4px solid transparent;
+      border-left: 6px solid #a78bfa;
+    }
+
+    /* ─── PM BRIEF CARD ──────────────────────────────────── */
+    .pm-brief {
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 18px; padding: 1.75rem 1.65rem;
+      min-width: 248px; max-width: 280px;
+      position: relative; overflow: hidden;
+      animation: hero-card-in .9s cubic-bezier(.22,1,.36,1) .28s both;
+    }
+    .pm-brief::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, #60a5fa 0%, #a78bfa 55%, #fb923c 100%);
+    }
+    .pm-brief-hdr {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 1.4rem; padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+    .pm-brief-hdr-lbl {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.57rem; font-weight: 800;
+      letter-spacing: 0.18em; text-transform: uppercase; color: #475569;
+    }
+    .pm-brief-hdr-id {
+      font-size: 0.57rem; color: #334155;
+      background: rgba(96,165,250,.07);
+      border: 1px solid rgba(96,165,250,.14);
+      padding: 0.14rem 0.5rem; border-radius: 4px;
+      font-family: monospace;
+    }
+    .pm-field { margin-bottom: 1.1rem; }
+    .pm-field:last-child { margin-bottom: 0; }
+    .pm-key {
+      font-size: 0.55rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.13em;
+      color: #3b82f6; margin-bottom: 0.28rem;
+    }
+    .pm-val { font-size: 0.77rem; color: #94a3b8; line-height: 1.55; }
+    .pm-val strong { color: #cbd5e1; font-weight: 600; }
+    .pm-status-pill {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(16,185,129,.1); border: 1px solid rgba(16,185,129,.22);
+      color: #34d399; padding: 0.2rem 0.65rem;
+      border-radius: 100px; font-size: 0.68rem; font-weight: 600;
+      margin-bottom: 0.38rem;
+    }
+    .pm-status-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #10b981; flex-shrink: 0;
+      animation: pulse-green 2s ease-out infinite;
+    }
+    .pm-sub { font-size: 0.7rem; color: #475569; margin-top: 0.28rem; }
+    .pm-row { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.38rem; }
+    .pm-row:last-child { margin-bottom: 0; }
+    .pm-row-arr { font-size: 0.6rem; color: #60a5fa; flex-shrink: 0; margin-top: 3px; line-height: 1; }
+    .pm-row-txt { font-size: 0.73rem; color: #94a3b8; line-height: 1.4; }
+    .pm-row-txt strong { color: #cbd5e1; }
+
+    /* ─── SECTION CHAPTER LABELS ─────────────────────────── */
+    .chapter-mark {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 5rem; font-weight: 800; line-height: 1;
+      color: rgba(0,0,0,.03); letter-spacing: -0.05em;
+      position: absolute; right: clamp(1rem,4vw,3rem); top: 3rem;
+      pointer-events: none; user-select: none;
+    }
+    section { position: relative; }
+    .contact-sec .chapter-mark { color: rgba(255,255,255,.03); }
+
+    /* ─── HERO H1 REFINED ────────────────────────────────── */
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 1.1rem;
+    }
+    .hero-eyebrow-line {
+      width: 2rem; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(96,165,250,.6));
+    }
+    .hero-eyebrow-text {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.13em;
+      text-transform: uppercase; color: #60a5fa;
+    }
+
+    /* ─── EXPERIENCE SECTION TITLE UPDATE ───────────────── */
+    /* (applied via targeted class override) */
+
+    /* ─── SECTION DIVIDER ────────────────────────────────── */
+    .sec-divide {
+      width: 100%; overflow: hidden; line-height: 0;
+    }
+    .sec-divide svg { display: block; }
+  </style>
+</head>
+<body>
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+<div class="read-bar" id="readBar"></div>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">
+    <span class="logo-mark">TJ</span>
+    Teja Jampani
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:tejajampani01@gmail.com" class="nav-open">
+    <span class="nav-open-dot"></span>
+    Open to PM Roles
+  </a>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section id="home" class="hero">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-grain"></div>
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-inner">
+    <div>
+      <!-- eyebrow -->
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-line"></span>
+        <span class="hero-eyebrow-text">Bangalore · Product Portfolio</span>
+      </div>
+
+      <!-- name -->
+      <h1>Phani Sai Teja<br><span class="accent">Jampani</span></h1>
+
+      <!-- journey arc -->
+      <div class="hero-journey">
+        <div class="hj-node">
+          <div class="hj-dot hj-dot-from"></div>
+          <span class="hj-lbl hj-lbl-from">Software Engineer</span>
+        </div>
+        <div class="hj-line">
+          <div class="hj-fill"></div>
+          <div class="hj-arrow"></div>
+        </div>
+        <div class="hj-node">
+          <div class="hj-dot hj-dot-to"></div>
+          <span class="hj-lbl hj-lbl-to">Product Manager</span>
+        </div>
+      </div>
+
+      <p class="hero-tagline">Built the software. Now I want to <span class="hl">build the product.</span></p>
+      <p class="hero-sub">
+        Three years shipping production software taught me that the hardest problems aren't
+        in the code. They're upstream — in the questions nobody asked before the sprint
+        started: who actually needs this, and why? I kept asking those questions.
+        Now I want to own them.
+      </p>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-val">3 yrs</div>
+          <div class="stat-lbl">Engineering Exp.</div>
+        </div>
+        <div>
+          <div class="stat-val">7</div>
+          <div class="stat-lbl">PM Projects</div>
+        </div>
+        <div>
+          <div class="stat-val">5+</div>
+          <div class="stat-lbl">Industries</div>
+        </div>
+        <div>
+          <div class="stat-val">Top 100</div>
+          <div class="stat-lbl">AI Hackathon 2025</div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View Projects →</a>
+        <a href="Resume_PhaniSaiTeja.pdf" download class="btn btn-ghost">Download Resume</a>
+        <a href="https://www.linkedin.com/in/phani-sai-teja-jampani" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      </div>
+    </div>
+
+    <!-- PM BRIEF card -->
+    <div class="pm-brief">
+      <div class="pm-brief-hdr">
+        <span class="pm-brief-hdr-lbl">PM Brief</span>
+        <span class="pm-brief-hdr-id">v1.0 · 2025</span>
+      </div>
+      <div class="pm-field">
+        <div class="pm-key">Problem</div>
+        <div class="pm-val">The gap between what ships and what users actually need — no one upstream is asking why.</div>
+      </div>
+      <div class="pm-field">
+        <div class="pm-key">Hypothesis</div>
+        <div class="pm-val"><strong>An SE who asks "why" upstream</strong> is already doing the hardest part of PM.</div>
+      </div>
+      <div class="pm-field">
+        <div class="pm-key">Status</div>
+        <div>
+          <div class="pm-status-pill">
+            <span class="pm-status-dot"></span>
+            Open · Associate PM / PM
+          </div>
+          <div class="pm-sub">Consumer · Enterprise · AI Products</div>
+        </div>
+      </div>
+      <div class="pm-field">
+        <div class="pm-key">Currently</div>
+        <div class="pm-row">
+          <span class="pm-row-arr">↗</span>
+          <span class="pm-row-txt"><strong>Siemens Healthineers</strong> · Software Engineer</span>
+        </div>
+        <div class="pm-row">
+          <span class="pm-row-arr">↗</span>
+          <span class="pm-row-txt"><strong>Airtribe PM Cohort</strong> · AI-First PM</span>
+        </div>
+        <div class="pm-row">
+          <span class="pm-row-arr">↗</span>
+          <span class="pm-row-txt"><strong>IEEE Published</strong> · IATMSI 2024</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- typewriter strip -->
+  <div class="tw-strip">
+    <span class="tw-label">profile</span>
+    <span class="tw-text-wrap">
+      <span id="twText"></span><span class="tw-cursor"></span>
+    </span>
+    <div class="tw-dots" id="twDots"></div>
+    <span class="tw-counter" id="twCounter">01 / 07</span>
+  </div>
+</section>
+
+<!-- ═══════════════════ ABOUT ═══════════════════ -->
+<section id="about" class="about-bg">
+  <span class="chapter-mark" aria-hidden="true">01</span>
+  <div class="container">
+    <span class="sec-label">The Story</span>
+    <h2 class="sec-title">Built the software.<br>Fell in love with the problem.</h2>
+    <div class="about-narrative">
+      <p>
+        When I joined Siemens Healthineers fresh out of engineering college, the job was clear:
+        write reliable software for MRI platforms. Cybersecurity components, update orchestration,
+        license management — real infrastructure that hospitals depend on. I owned features
+        end-to-end and delivered. But two years in, I started asking questions that weren't in
+        my job description.
+      </p>
+      <p>
+        Why did clinicians work around the feature we'd spent six weeks building? Why did the
+        highest-priority ticket sit untouched for three quarters? Why had nobody spoken to an
+        actual user before we shipped? The gap between what we engineered and what people needed
+        had a name — and it was a <em>product problem</em>, not a technical one.
+      </p>
+      <p>
+        So I did something about it. I enrolled in Airtribe's <strong>16-week AI-First PM
+        Cohort</strong> — not to tick a box, but to learn the discipline behind the craft.
+        The seven projects in this portfolio are what came out: end-to-end PM work across
+        five industries, built from first principles, measured against real outcomes.
+      </p>
+      <p>
+        Along the way, I co-authored an <strong>IEEE paper</strong> on ML-based cardiovascular
+        health assessment (IATMSI 2024), and co-led a team to the
+        <strong>Top 100 at the AI for Bharat Hackathon 2025</strong> — a cloud-native
+        intelligence platform for Indian farmers, shipped under pressure on AWS. Different
+        domain, same instinct: take the problem seriously, and find the right solution.
+      </p>
+    </div>
+    <div class="about-cards-grid">
+        <div class="about-card">
+          <div class="about-card-icon">🏥</div>
+          <div>
+            <h4>Siemens Healthineers — Software Engineer</h4>
+            <p>Shipped features across cybersecurity, update orchestration, and license management for clinical imaging systems — full SDLC ownership in a domain where quality failures have real consequences.</p>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🎯</div>
+          <div>
+            <h4>AI-First PM Cohort — Airtribe (16 weeks)</h4>
+            <p>Product Strategy · User Research · UX Design · Product Analytics · PRD Writing · Go-To-Market · AI-powered PM workflows.</p>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🏆</div>
+          <div>
+            <h4>Top 100 · AI for Bharat Hackathon 2025</h4>
+            <p>Cloud-native post-harvest AI platform on AWS. Crop price prediction, storage recommendations, logistics &amp; market intelligence for farmers.</p>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">📄</div>
+          <div>
+            <h4>IEEE Publication · IATMSI 2024</h4>
+            <p>Co-authored research on non-invasive cardiovascular health assessment using wrist pulse wave analysis and ML classification.</p>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🎓</div>
+          <div>
+            <h4>B.E. ECE · NIE Mysore · CGPA 8.34</h4>
+            <p>Electronics &amp; Communication Engineering, 2019–2023. Chairperson, UCSP Club — led 4 flagship technical events.</p>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SKILLS ═══════════════════ -->
+<section id="skills">
+  <span class="chapter-mark" aria-hidden="true">02</span>
+  <div class="container">
+    <span class="sec-label">Skills &amp; Tools</span>
+    <h2 class="sec-title">I speak engineering. I think in products.</h2>
+    <p class="sec-desc">
+      I write requirements engineers don't need to decode. I read system architecture without a
+      translator. I run user interviews and ship feature specs in the same sprint. Here's what
+      that looks like.
+    </p>
+    <div class="skills-grid">
+      <div class="skill-box">
+        <div class="skill-box-title">Product Management</div>
+        <div class="tags">
+          <span class="tag">Product Strategy</span>
+          <span class="tag">PRD Writing</span>
+          <span class="tag">User Research</span>
+          <span class="tag">Feature Prioritization</span>
+          <span class="tag">Roadmapping</span>
+          <span class="tag">OKRs &amp; KRs</span>
+          <span class="tag">Product Analytics</span>
+          <span class="tag">Go-To-Market</span>
+          <span class="tag">Competitive Analysis</span>
+        </div>
+      </div>
+      <div class="skill-box">
+        <div class="skill-box-title">Frameworks &amp; Methods</div>
+        <div class="tags">
+          <span class="tag">AARRR Funnel</span>
+          <span class="tag">RICE Prioritization</span>
+          <span class="tag">Heuristic Evaluation</span>
+          <span class="tag">Jobs-to-be-Done</span>
+          <span class="tag">Cohort Analysis</span>
+          <span class="tag">Funnel Analysis</span>
+          <span class="tag">A/B Testing</span>
+          <span class="tag">User Persona</span>
+          <span class="tag">North Star Metric</span>
+        </div>
+      </div>
+      <div class="skill-box">
+        <div class="skill-box-title">Technical</div>
+        <div class="tags">
+          <span class="tag">Backend Development</span>
+          <span class="tag">System Design</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Distributed Systems</span>
+          <span class="tag">Multithreading</span>
+          <span class="tag">CI/CD Pipelines</span>
+          <span class="tag">Cybersecurity</span>
+          <span class="tag">Microservices</span>
+        </div>
+      </div>
+      <div class="skill-box">
+        <div class="skill-box-title">Languages &amp; Platforms</div>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">C#</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Azure DevOps</span>
+          <span class="tag">Git</span>
+          <span class="tag">YAML</span>
+        </div>
+      </div>
+      <div class="skill-box">
+        <div class="skill-box-title">AI &amp; Data</div>
+        <div class="tags">
+          <span class="tag">Predictive Analytics</span>
+          <span class="tag">ML Fundamentals</span>
+          <span class="tag">Data Analysis</span>
+          <span class="tag">Feature Engineering</span>
+          <span class="tag">AI Product Management</span>
+        </div>
+      </div>
+      <div class="skill-box">
+        <div class="skill-box-title">Domain Knowledge</div>
+        <div class="tags">
+          <span class="tag">Healthcare Tech</span>
+          <span class="tag">Medical Software</span>
+          <span class="tag">EdTech</span>
+          <span class="tag">Food Delivery</span>
+          <span class="tag">Quick Commerce</span>
+          <span class="tag">Mobility</span>
+          <span class="tag">Social Media</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROJECTS ═══════════════════ -->
+<section id="projects" class="projects-bg">
+  <span class="chapter-mark" aria-hidden="true">03</span>
+  <div class="container">
+    <span class="sec-label">PM Portfolio</span>
+    <h2 class="sec-title">Seven problems I chose to solve.</h2>
+    <p class="sec-desc">
+      A retention crisis. A broken growth funnel. A user journey nobody had mapped. I picked these
+      because they were worth solving — and worked each one like a PM would: problem first,
+      solution second, outcome always.
+    </p>
+    <div class="projects-grid">
+
+      <!-- 01 LearnPath AI -->
+      <div class="pcard">
+        <div class="pcard-ghost-num">01</div>
+        <div class="pcard-top">
+          <span class="badge b-prd">PRD</span>
+          <span class="pcard-num">PRD</span>
+        </div>
+        <div class="pcard-title">LearnPath AI</div>
+        <div class="pcard-sub">Personalised Learning Recommendation System · PRD v1.0</div>
+        <div class="pcard-desc">
+          Full PRD for an AI-powered learning platform with a hybrid Collaborative Filtering +
+          Content-Based Filtering recommendation engine. Covers 15 user stories across 3 personas,
+          10 functional requirements, full microservices architecture (React + Kafka + Redis + Spark/EMR),
+          trade-off analysis (personalisation vs privacy), and a 3-phase 24-month roadmap.
+        </div>
+        <div class="pcard-metrics">
+          <div class="metric"><span>Target: +25% user engagement</span></div>
+          <div class="metric"><span>Target: +30% course completion rate</span></div>
+          <div class="metric"><span>Target: +20% satisfaction NPS</span></div>
+          <div class="metric"><span>NFR: &lt;200ms p95 recommendation latency</span></div>
+        </div>
+        <div class="pcard-tags">
+          <span class="ptag">EdTech</span>
+          <span class="ptag">AI/ML</span>
+          <span class="ptag">Microservices</span>
+          <span class="ptag">GDPR</span>
+          <span class="ptag">System Design</span>
+          <span class="ptag">Roadmapping</span>
+        </div>
+      </div>
+
+      <!-- 02 VitaFit StayFit+ -->
+      <div class="pcard">
+        <div class="pcard-ghost-num">02</div>
+        <div class="pcard-top">
+          <span class="badge b-prd">PRD</span>
+          <span class="pcard-num">PRD</span>
+        </div>
+        <div class="pcard-title">VitaFit — StayFit+</div>
+        <div class="pcard-sub">Gamification &amp; Community Features · PM Assignment</div>
+        <div class="pcard-desc">
+          Solved VitaFit's D30 retention crisis (dropped 18% QoQ) by designing two interconnected
+          features: <strong>FitPoints</strong> — a streak, coin &amp; badge gamification engine — and
+          <strong>SquadChallenges</strong> — an instructor-led squad competition model. Grounded in
+          cohort analysis, NPS text-mining, and Duolingo/Peloton benchmarking. Includes low-fidelity
+          wireframes, notification logic, and a 16-week experiment plan with success gates.
+        </div>
+        <div class="pcard-metrics">
+          <div class="metric"><span>D30 retention: 38% → 52%</span></div>
+          <div class="metric"><span>Session frequency: +30% per user/month</span></div>
+          <div class="metric"><span>7-day streak: 40% of users</span></div>
+          <div class="metric"><span>Squad participation: 25% MAU</span></div>
+        </div>
+        <div class="pcard-tags">
+          <span class="ptag">FitTech</span>
+          <span class="ptag">Gamification</span>
+          <span class="ptag">Retention</span>
+          <span class="ptag">A/B Testing</span>
+          <span class="ptag">Community</span>
+          <span class="ptag">Wireframes</span>
+        </div>
+      </div>
+
+      <!-- 03 Zomato -->
+      <div class="pcard">
+        <div class="pcard-ghost-num">03</div>
+        <div class="pcard-top">
+          <span class="badge b-strategy">PM Assignment</span>
+          <span class="pcard-num">Strategy</span>
+        </div>
+        <div class="pcard-title">Zomato — CY2026 Strategy</div>
+        <div class="pcard-sub">Food Delivery Experience · Tier-1 Cities</div>
+        <div class="pcard-desc">
+          Defined CY2026 OKRs with 4 KRs and 6 product initiatives to shift Zomato from
+          discount-dependency to organic ordering habit. 7-stage funnel analysis identified
+          Menu→Cart (-28%) as the highest-leverage leak — a decision-paralysis problem, not a
+          traffic problem. 3-cohort retention analysis with specific hypotheses (Taste Unlock,
+          3-Order Onboarding, Frequency Rescue). Quarterly roadmap targets 3.8x the North Star.
+        </div>
+        <div class="pcard-metrics">
+          <div class="metric"><span>Discovery→Order conversion: 32% → 50%</span></div>
+          <div class="metric"><span>Organic orders: 38% → 60%</span></div>
+          <div class="metric"><span>90-day retention: 28% → 42%</span></div>
+          <div class="metric"><span>Delivery NPS: 41 → 55+</span></div>
+        </div>
+        <div class="pcard-tags">
+          <span class="ptag">Food Delivery</span>
+          <span class="ptag">OKRs</span>
+          <span class="ptag">Funnel Analysis</span>
+          <span class="ptag">Cohort Analysis</span>
+          <span class="ptag">AI Personalisation</span>
+          <span class="ptag">Growth</span>
+        </div>
+      </div>
+
+      <!-- 04 Twitter/X -->
+      <div class="pcard">
+        <div class="pcard-ghost-num">04</div>
+        <div class="pcard-top">
+          <span class="badge b-growth">Growth Analysis</span>
+          <span class="pcard-num">Growth</span>
+        </div>
+        <div class="pcard-title">Twitter / X — AARRR Analysis</div>
+        <div class="pcard-sub">Platform Growth Strategy Deep-Dive</div>
+        <div class="pcard-desc">
+          Full AARRR funnel teardown of Twitter/X (250M+ DAU). Identified 5 structural gaps
+          grounded in App Store reviews, Reddit threads, and competitor benchmarks — including
+          the sign-in wall blocking 40–60% of unauth visitors and the creator monetisation barrier
+          (5M impression threshold excludes 95%+ of creators). Proposed 4 RICE-scored Growth Epics
+          with evidence-based impact estimates.
+        </div>
+        <div class="pcard-metrics">
+          <div class="metric"><span>5 structural gaps with evidence mapped</span></div>
+          <div class="metric"><span>D30 retention: 40% vs 55–65% industry avg</span></div>
+          <div class="metric"><span>Creator mid-tier gap: est. $16–24M ARR opp.</span></div>
+          <div class="metric"><span>Sign-in wall: 15–25% more sign-up conversions</span></div>
+        </div>
+        <div class="pcard-tags">
+          <span class="ptag">Social Media</span>
+          <span class="ptag">AARRR</span>
+          <span class="ptag">RICE Framework</span>
+          <span class="ptag">Creator Economy</span>
+          <span class="ptag">Growth</span>
+          <span class="ptag">Monetisation</span>
+        </div>
+      </div>
+
+      <!-- 05 Zepto AOV -->
+      <div class="pcard">
+        <div class="pcard-ghost-num">05</div>
+        <div class="pcard-top">
+          <span class="badge b-case">Case Study</span>
+          <span class="pcard-num">Case Study</span>
+        </div>
+        <div class="pcard-title">Zepto — AOV Optimization</div>
+        <div class="pcard-sub">Quick Commerce · Basket Expansion Strategy</div>
+        <div class="pcard-desc">
+          Research + strategy to increase Zepto's Average Order Value, depressed by urgency-first
+          shopping behaviour. Segmented users into 3 behavioural types (Emergency Buyers, Convenience
+          Shoppers, Planned Grocery Buyers) and identified 4 structural blockers (urgency intent,
+          free-delivery ceiling, poor discovery, cognitive load). Designed 3 RICE-scored solutions
+          without adding checkout friction.
+        </div>
+        <div class="pcard-metrics">
+          <div class="metric"><span>Target: 20–30% AOV increase</span></div>
+          <div class="metric"><span>3 user segments · 4 structural blockers</span></div>
+          <div class="metric"><span>Smart Basket Builder ranked #1 via RICE</span></div>
+        </div>
+        <div class="pcard-tags">
+          <span class="ptag">Quick Commerce</span>
+          <span class="ptag">User Research</span>
+          <span class="ptag">Behavioural Economics</span>
+          <span class="ptag">RICE</span>
+          <span class="ptag">Segmentation</span>
+          <span class="ptag">Growth</span>
+        </div>
+      </div>
+
+      <!-- 06 Uber Pickup -->
+      <div class="pcard">
+        <div class="pcard-ghost-num">06</div>
+        <div class="pcard-top">
+          <span class="badge b-research">User Research</span>
+          <span class="pcard-num">Research</span>
+        </div>
+        <div class="pcard-title">Uber — Pickup Coordination</div>
+        <div class="pcard-sub">India Market Research · Mobility</div>
+        <div class="pcard-desc">
+          Deep-dive into Uber's pickup coordination failure in high-friction Indian urban environments
+          (airports, malls, transit hubs). 10 user interviews across 5 rider segments produced 5
+          detailed personas. Key insight: riders rely on landmarks more than GPS pins — pointing to an
+          opportunity for landmark-based pickup guidance. Competitive analysis versus Lyft, Ola, Grab,
+          and DiDi surfaced a clear product gap.
+        </div>
+        <div class="pcard-metrics">
+          <div class="metric"><span>10 user interviews · 5 personas developed</span></div>
+          <div class="metric"><span>20–30% of India rides in high-friction environments</span></div>
+          <div class="metric"><span>4 root themes · 4 opportunity areas</span></div>
+          <div class="metric"><span>4 competitive platforms benchmarked</span></div>
+        </div>
+        <div class="pcard-tags">
+          <span class="ptag">Mobility</span>
+          <span class="ptag">User Interviews</span>
+          <span class="ptag">Personas</span>
+          <span class="ptag">Competitive Analysis</span>
+          <span class="ptag">India Market</span>
+          <span class="ptag">Problem Synthesis</span>
+        </div>
+      </div>
+
+      <!-- 07 IRCTC -->
+      <div class="pcard">
+        <div class="pcard-ghost-num">07</div>
+        <div class="pcard-top">
+          <span class="badge b-ux">UX Analysis</span>
+          <span class="pcard-num">UX</span>
+        </div>
+        <div class="pcard-title">IRCTC — UX Evaluation &amp; Redesign</div>
+        <div class="pcard-sub">Travel Tech · Heuristic Evaluation</div>
+        <div class="pcard-desc">
+          Applied Nielsen's Heuristics and Jakob's Law to identify 4 critical UX violations in the
+          IRCTC app — India's primary rail booking platform. Each violation was mapped to a specific
+          heuristic with friction analysis and a concrete redesign proposal: hidden seat availability
+          (Visibility of System Status), captcha fatigue (Flexibility &amp; Efficiency), gateway-first
+          payment flow (Jakob's Law), and the misplaced Done button (Consistency &amp; Standards).
+        </div>
+        <div class="pcard-metrics">
+          <div class="metric"><span>4 violations → specific heuristics mapped</span></div>
+          <div class="metric"><span>Before/after redesign with screenshot evidence</span></div>
+          <div class="metric"><span>15+ clicks eliminated in train comparison flow</span></div>
+        </div>
+        <div class="pcard-tags">
+          <span class="ptag">Travel Tech</span>
+          <span class="ptag">UX Evaluation</span>
+          <span class="ptag">Nielsen Heuristics</span>
+          <span class="ptag">Jakob's Law</span>
+          <span class="ptag">Redesign</span>
+          <span class="ptag">Mobile UX</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ EXPERIENCE ═══════════════════ -->
+<section id="experience">
+  <span class="chapter-mark" aria-hidden="true">04</span>
+  <div class="container">
+    <span class="sec-label">Experience &amp; Education</span>
+    <h2 class="sec-title">Where the instincts<br>come from.</h2>
+    <div class="exp-grid">
+
+      <!-- LEFT: Work -->
+      <div>
+        <div class="exp-col-label">Work Experience</div>
+        <div class="timeline">
+
+          <div class="tl-item">
+            <div class="tl-date">July 2023 – Present</div>
+            <div class="tl-role">Software Engineer</div>
+            <div class="tl-company">Siemens Healthineers · Bangalore</div>
+            <ul class="tl-points">
+              <li>Designed and built MRI platform software: cybersecurity solutions, update orchestration, license-based feature enablement</li>
+              <li>Backend services and multithreaded C# workflows across distributed MRI environments</li>
+              <li>Owned feature delivery across full SDLC — design, implementation, integration testing, deployment, production support</li>
+              <li>Defined requirement keys, clarified feature behaviour, partnered with QA for release quality</li>
+              <li>Investigated production issues using logs, telemetry, and debugging tools; prioritised fixes by customer impact</li>
+              <li>Built and maintained Azure DevOps CI/CD pipelines to automate testing and improve release reliability</li>
+              <li>Agile ceremonies: sprint planning, backlog refinement, estimation, release discussions</li>
+            </ul>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-date">Feb 2023 – June 2023</div>
+            <div class="tl-role">Technical Intern</div>
+            <div class="tl-company">Siemens Healthineers · Bangalore</div>
+            <ul class="tl-points">
+              <li>Cybersecurity assessments and vulnerability analysis for healthcare software systems</li>
+              <li>Developed automation solutions to support security validation and software quality</li>
+              <li>Collaborated with engineering teams to identify risks and support secure delivery</li>
+            </ul>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-date">Oct 2021 – June 2022</div>
+            <div class="tl-role">Chairperson, UCSP Club</div>
+            <div class="tl-company">National Institute of Engineering, Mysore</div>
+            <ul class="tl-points">
+              <li>Led cross-functional teams across technical, marketing, and editorial functions</li>
+              <li>Organised flagship events: Codezilla, Git Workshops, Web Development Workshops</li>
+              <li>Managed event planning, stakeholder coordination, budgeting, and execution</li>
+              <li>Introduced initiatives that improved financial sustainability and student engagement</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: Education + Certs + Other Projects -->
+      <div>
+        <div class="exp-col-label">Education</div>
+        <div class="timeline" style="margin-bottom:2.5rem;">
+          <div class="tl-item">
+            <div class="tl-date">2019 – 2023</div>
+            <div class="tl-role">B.E. Electronics &amp; Communication Engineering</div>
+            <div class="tl-company">National Institute of Engineering, Mysore</div>
+            <ul class="tl-points">
+              <li>CGPA: 8.34</li>
+              <li>IEEE paper: ECG Pulse Wave Analysis for Cardiovascular Assessment (IATMSI 2024)</li>
+              <li>Ultrasonic Spatial Mapper — 2D environment mapping using sensors &amp; microcontrollers</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-col-label">Certifications</div>
+        <div class="cert-stack">
+          <div class="cert-card">
+            <div class="cert-icon">🎯</div>
+            <div>
+              <h4>AI-First Product Management Cohort — Airtribe</h4>
+              <p>16-week intensive · Product Strategy · User Research · UX Design · Product Analytics · PRD Writing · Go-To-Market · AI-powered PM workflows</p>
+            </div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">🐍</div>
+            <div>
+              <h4>The Joy of Computing using Python — NPTEL</h4>
+              <p>SWAYAM · Indian Institute of Technology Madras</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-col-label" style="margin-top:2rem;">Notable Projects</div>
+        <div class="other-grid">
+          <div class="other-card">
+            <div class="other-badge">🏆 Top 100 · AI for Bharat Hackathon 2025</div>
+            <h4>Agricultural Intelligence Platform</h4>
+            <p>Cloud-native post-harvest orchestration on AWS. AI crop price prediction, storage recommendations, and supply chain visibility for Indian farmers.</p>
+          </div>
+          <div class="other-card">
+            <div class="other-badge">📡 IEEE · IATMSI 2024</div>
+            <h4>ECG Pulse Wave Analysis</h4>
+            <p>ML-based non-invasive cardiovascular health assessment using wrist pulse waveform, intensity &amp; frequency classification on portable sensing data.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<section id="contact" class="contact-sec">
+  <span class="chapter-mark" aria-hidden="true">05</span>
+  <div class="container">
+    <span class="sec-label">Get in Touch</span>
+    <h2 class="sec-title">Let's work on something that matters</h2>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">
+          I'm looking for my first PM role — Associate PM or PM, in consumer tech, enterprise software,
+          or anything at the intersection of AI and people. I'd rather walk through one of these
+          projects with you on a call than send a longer summary here. If any of this resonates,
+          reach out.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:tejajampani01@gmail.com" class="clink">
+            <div class="clink-icon">📧</div>
+            <span>tejajampani01@gmail.com</span>
+          </a>
+          <a href="tel:+917348968996" class="clink">
+            <div class="clink-icon">📱</div>
+            <span>+91 73489 68996</span>
+          </a>
+          <a href="https://www.linkedin.com/in/phani-sai-teja-jampani" target="_blank" rel="noopener" class="clink">
+            <div class="clink-icon">💼</div>
+            <span>LinkedIn — Phani Sai Teja Jampani</span>
+          </a>
+          <a href="Resume_PhaniSaiTeja.pdf" download class="clink">
+            <div class="clink-icon">📄</div>
+            <span>Resume — Download PDF</span>
+          </a>
+          <div class="clink">
+            <div class="clink-icon">📍</div>
+            <span>Bangalore, India</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-box">
+        <h3>What I bring</h3>
+        <p>
+          3 years owning features end-to-end inside enterprise medical software.
+          16 weeks learning to think in problems, not just solutions.
+          7 projects across 5 industries — every one built like it was going to ship.
+        </p>
+        <div class="skills-pill-row">
+          <span class="skills-pill">PRD Writing</span>
+          <span class="skills-pill">OKRs &amp; Strategy</span>
+          <span class="skills-pill">User Research</span>
+          <span class="skills-pill">Funnel Analysis</span>
+          <span class="skills-pill">AARRR</span>
+          <span class="skills-pill">RICE Prioritization</span>
+          <span class="skills-pill">Technical Depth</span>
+          <span class="skills-pill">System Design</span>
+        </div>
+        <a href="mailto:tejajampani01@gmail.com" class="btn btn-primary">
+          Let's Connect →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <p>© 2025 Phani Sai Teja Jampani · Bangalore, India</p>
+  <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;">
+    <a href="mailto:tejajampani01@gmail.com">tejajampani01@gmail.com</a>
+    <a href="https://www.linkedin.com/in/phani-sai-teja-jampani" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="Resume_PhaniSaiTeja.pdf" download>Resume</a>
+  </div>
+</footer>
+
+<script>
+  /* ─── NAV + PROGRESS BAR ─────────────────────────────── */
+  const navbar  = document.getElementById('navbar');
+  const navAs   = document.querySelectorAll('.nav-links a');
+  const secs    = document.querySelectorAll('section[id]');
+  const readBar = document.getElementById('readBar');
+
+  function onScroll() {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    readBar.style.width = (window.scrollY / max * 100) + '%';
+    let cur = '';
+    secs.forEach(s => { if (window.scrollY >= s.offsetTop - 90) cur = s.id; });
+    navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${cur}`));
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ─── CUSTOM CURSOR ──────────────────────────────────── */
+  const dot  = document.querySelector('.cursor');
+  const ring = document.querySelector('.cursor-ring');
+  if (dot && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    let mx = -200, my = -200, rx = -200, ry = -200;
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+    });
+    (function tick() {
+      rx += (mx - rx) * .13; ry += (my - ry) * .13;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(tick);
+    })();
+    document.querySelectorAll('a, button, .pcard, .about-card, .skill-box, .pm-brief').forEach(el => {
+      el.addEventListener('mouseenter', () => { dot.classList.add('c-hover'); ring.classList.add('c-hover'); });
+      el.addEventListener('mouseleave', () => { dot.classList.remove('c-hover'); ring.classList.remove('c-hover'); });
+    });
+  } else if (dot) {
+    dot.style.display = 'none'; ring.style.display = 'none';
+    document.body.style.cursor = 'auto';
+  }
+
+  /* ─── SCROLL REVEAL ──────────────────────────────────── */
+  const revealSelectors = [
+    '.sec-label', '.sec-title', '.sec-desc',
+    '.about-narrative', '.contact-intro', '.contact-box',
+    '.about-card', '.skill-box', '.tl-item', '.cert-card', '.other-card', '.pcard',
+  ];
+  const revealEls = revealSelectors.flatMap(s => [...document.querySelectorAll(s)]);
+
+  // Phase 1: mark all
+  revealEls.forEach(el => el.classList.add('reveal'));
+
+  // Phase 2: stagger within parent
+  revealEls.forEach(el => {
+    const sibs = [...el.parentElement.children].filter(c => c.classList.contains('reveal'));
+    const idx  = sibs.indexOf(el);
+    el.style.transitionDelay = Math.min(idx * 0.085, 0.51) + 's';
+  });
+
+  // Phase 3: observe
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => io.observe(el));
+
+  /* ─── STAT COUNTER ───────────────────────────────────── */
+  function countUp(el) {
+    const raw = el.textContent.trim();
+    const num = parseFloat(raw);
+    if (isNaN(num)) return;
+    const suffix = raw.replace(/[\d.]+/, '');
+    const isInt  = Number.isInteger(num);
+    let t0 = null;
+    requestAnimationFrame(function step(ts) {
+      if (!t0) t0 = ts;
+      const p    = Math.min((ts - t0) / 1500, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = (isInt ? Math.round(num * ease) : (num * ease).toFixed(1)) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    });
+  }
+  const cio = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { countUp(e.target); cio.unobserve(e.target); } });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-val').forEach(el => cio.observe(el));
+
+  /* ─── 3D CARD TILT ───────────────────────────────────── */
+  document.querySelectorAll('.pcard').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - .5;
+      const y = (e.clientY - r.top)  / r.height - .5;
+      card.style.transform =
+        `perspective(700px) rotateY(${x * 9}deg) rotateX(${-y * 9}deg) translateY(-5px) scale(1.015)`;
+      card.style.boxShadow = `${-x * 12}px ${-y * 12}px 40px rgba(0,0,0,.12)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.boxShadow = '';
+    });
+  });
+
+  /* ─── PCARD CATEGORY ACCENT ──────────────────────────── */
+  document.querySelectorAll('.pcard').forEach(card => {
+    const b = card.querySelector('.badge');
+    if (!b) return;
+    const cls = [...b.classList].find(c => c.startsWith('b-'));
+    if (cls) card.dataset.ptype = cls.slice(2);
+  });
+
+  /* ─── HERO CANVAS NETWORK ───────────────────────────── */
+  (function () {
+    const cvs = document.getElementById('heroCanvas');
+    if (!cvs) return;
+    const ctx = cvs.getContext('2d');
+    let W, H, nodes;
+    const N = 60, MAXD = 145;
+
+    function resize() {
+      W = cvs.width  = cvs.offsetWidth;
+      H = cvs.height = cvs.offsetHeight;
+    }
+
+    function init() {
+      nodes = Array.from({ length: N }, () => ({
+        x:  Math.random() * W,
+        y:  Math.random() * H,
+        vx: (Math.random() - .5) * .3,
+        vy: (Math.random() - .5) * .3,
+        r:  Math.random() * 1.6 + .6,
+      }));
+    }
+
+    function frame() {
+      ctx.clearRect(0, 0, W, H);
+      for (let i = 0; i < N; i++) {
+        for (let j = i + 1; j < N; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const d  = Math.sqrt(dx * dx + dy * dy);
+          if (d < MAXD) {
+            const a = (1 - d / MAXD) * .18;
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.strokeStyle = 'rgba(96,165,250,' + a + ')';
+            ctx.lineWidth = .6;
+            ctx.stroke();
+          }
+        }
+      }
+      nodes.forEach(n => {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(148,163,184,.45)';
+        ctx.fill();
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > W) n.vx *= -1;
+        if (n.y < 0 || n.y > H) n.vy *= -1;
+      });
+      requestAnimationFrame(frame);
+    }
+
+    resize(); init(); frame();
+    window.addEventListener('resize', () => { resize(); init(); });
+  })();
+
+  /* ─── TYPEWRITER STRIP ───────────────────────────────── */
+  const twFacts = [
+    '3 years · production software engineering',
+    '7 PM case studies · 5 industries',
+    'Top 100 · AI for Bharat Hackathon 2025',
+    'Airtribe AI-First PM Cohort · 16 weeks',
+    'IEEE Published · IATMSI 2024',
+    '90% reduction in deployment effort',
+    'Open to Associate PM and PM roles',
+  ];
+  const twTextEl    = document.getElementById('twText');
+  const twCounterEl = document.getElementById('twCounter');
+  const twDotsEl    = document.getElementById('twDots');
+
+  if (twTextEl) {
+    twFacts.forEach((_, i) => {
+      const d = Object.assign(document.createElement('div'), {
+        className: 'tw-dot' + (i === 0 ? ' on' : ''),
+      });
+      twDotsEl.appendChild(d);
+    });
+    const allDots = () => twDotsEl.querySelectorAll('.tw-dot');
+    const wait    = ms => new Promise(r => setTimeout(r, ms));
+    let idx = 0;
+
+    (async function loop() {
+      while (true) {
+        const fact = twFacts[idx];
+        allDots().forEach((d, i) => d.classList.toggle('on', i === idx));
+        twCounterEl.textContent =
+          String(idx + 1).padStart(2, '0') + ' / ' + String(twFacts.length).padStart(2, '0');
+
+        for (let i = 0; i <= fact.length; i++) {
+          twTextEl.textContent = fact.slice(0, i); await wait(38);
+        }
+        await wait(2600);
+        for (let i = fact.length; i >= 0; i--) {
+          twTextEl.textContent = fact.slice(0, i); await wait(15);
+        }
+        await wait(280);
+        idx = (idx + 1) % twFacts.length;
+      }
+    })();
+  }
+</script>
+
+</body>
+</html>
